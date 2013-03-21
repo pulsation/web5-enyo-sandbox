@@ -11,7 +11,23 @@ enyo.kind({
 			{kind: "onyx.Button", content: "Tap me", ontap: "helloWorldTap"}
 		]}
 	],
+
+  published: {
+    messages: []
+  },
+
+  messagesChanged: function (inOldValue) {
+    this.$.main.setContent("");
+    this.messages.forEach(function (message) {
+      this.$.main.addContent(message + "<br />");
+    }, this);
+  },
+
 	helloWorldTap: function(inSender, inEvent) {
-		this.$.main.addContent("The button was tapped.<br/>");
+    var that = this;
+    HelloMessages().pull(function (messages) {
+      // TODO: check if it would be possible to use enyo.bind() instead of that
+      that.setMessages(messages);
+    });
 	}
 });
