@@ -5,6 +5,9 @@ enyo.depends(
   
   // Lawnchair storage library
   "$lib/lawnchair/lawnchair-0.6.1.js",
+  
+  // HelloMessage VM
+  "HelloMessages.js",
 
 	"App.css",
 	"App.js"
