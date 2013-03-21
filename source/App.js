@@ -17,17 +17,16 @@ enyo.kind({
   },
 
   messagesChanged: function (inOldValue) {
-    this.$.main.setContent("");
     this.messages.forEach(function (message) {
       this.$.main.addContent(message + "<br />");
     }, this);
   },
 
 	helloWorldTap: function(inSender, inEvent) {
-    var that = this;
-    HelloMessages().pull(function (messages) {
-      // TODO: check if it would be possible to use enyo.bind() instead of that
-      that.setMessages(messages);
-    });
+    HelloMessages().pull(
+      enyo.bind(this, function (messages) {
+        this.setMessages(messages);
+      })
+    );
 	}
 });
