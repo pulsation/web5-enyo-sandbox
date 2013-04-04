@@ -3,6 +3,7 @@ enyo.kind({
 	kind: "FittableRows",
 	fit: true,
 	components:[
+    {kind: "Signals", ondeviceready: "deviceready"},
 		{kind: "onyx.Toolbar", content: "Hello World"},
 		{kind: "enyo.Scroller", fit: true, components: [
 			{name: "main", classes: "nice-padding", allowHtml: true}
