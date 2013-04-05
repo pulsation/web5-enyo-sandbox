@@ -5,3 +5,7 @@
 .nice-padding {
 	padding: 15px;
 }
+
+.enyo-body-fit {
+	height: 107%;
+}
